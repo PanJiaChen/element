@@ -136,10 +136,6 @@
         if (!this.collapse) {
           this.openedMenus = value;
         }
-      },
-
-      collapse(value) {
-        if (value) this.openedMenus = [];
       }
     },
     methods: {

@@ -70,7 +70,8 @@
       return {
         timeout: null,
         items: {},
-        submenus: {}
+        submenus: {},
+        isHover: false
       };
     },
     computed: {
@@ -78,7 +79,7 @@
         return this.rootMenu.collapse ? 'el-zoom-in-left' : 'el-zoom-in-top';
       },
       opened() {
-        return this.rootMenu.openedMenus.indexOf(this.index) > -1;
+        return this.rootMenu.openedMenus.indexOf(this.index) > -1 && (!this.rootMenu.collapse || this.isHover);
       },
       active() {
         let isActive = false;
@@ -163,6 +164,7 @@
         }
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
+          this.isHover = true;
           this.rootMenu.openMenu(this.index, this.indexPath);
         }, this.showTimeout);
       },
@@ -176,6 +178,7 @@
         }
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
+          this.isHover = false;
           this.rootMenu.closeMenu(this.index);
         }, this.hideTimeout);
       },
