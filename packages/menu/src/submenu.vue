@@ -312,9 +312,6 @@
           role="menuitem"
           aria-haspopup="true"
           aria-expanded={opened}
-          on-mouseenter={this.handleMouseenter}
-          on-mouseleave={this.handleMouseleave}
-          on-focus={this.handleMouseenter}
         >
           <div
             class="el-submenu__title"
